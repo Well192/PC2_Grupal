@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Evaluacion2/Anterior/Anterior.iml" filepath="$PROJECT_DIR$/Evaluacion2/Anterior/Anterior.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Evaluacion2/Fase1/Fase1.iml" filepath="$PROJECT_DIR$/Evaluacion2/Fase1/Fase1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Evaluacion2/Fase2/Fase2.iml" filepath="$PROJECT_DIR$/Evaluacion2/Fase2/Fase2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Evaluacion2/Fase3/Fase3.iml" filepath="$PROJECT_DIR$/Evaluacion2/Fase3/Fase3.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Evaluacion2/Fase4/Fase4.iml" filepath="$PROJECT_DIR$/Evaluacion2/Fase4/Fase4.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Evaluacion2/Fase5/Fase5.iml" filepath="$PROJECT_DIR$/Evaluacion2/Fase5/Fase5.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/PC2_Grupal.iml" filepath="$PROJECT_DIR$/.idea/PC2_Grupal.iml" />
+    </modules>
+  </component>
+</project>
