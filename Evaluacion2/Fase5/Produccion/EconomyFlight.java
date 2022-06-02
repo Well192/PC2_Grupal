@@ -17,5 +17,4 @@ public class EconomyFlight extends Flight {
         }
         return false;
     }
-
 }

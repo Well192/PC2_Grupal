@@ -6,7 +6,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class AirportTest {
 
-    @DisplayName("Dado que hay un vuelo economico")
+    @DisplayName("Para un vuelo economico")
     @Nested
     class EconomyFlightTest {
 
@@ -22,57 +22,54 @@ public class AirportTest {
         }
 
         @Nested
-        @DisplayName("Cuando tenemos un pasajero regular")
+        @DisplayName("Para un pasajero regular")
         class RegularPassenger {
-
-            @Test
-            @DisplayName("Luegos puedes agregarlo y eliminarlo de un vuelo economico")
-            public void testEconomyFlightRegularPassenger() {
-                assertAll("Verifica todas las condiciones para un pasajero regular y un vuelo economico",
-                        () -> assertEquals("1", economyFlight.getId()),
-                        () -> assertEquals(true, economyFlight.addPassenger(jessica)),
-                        () -> assertEquals(1, economyFlight.getPassengersSet().size()),
-                        () -> assertEquals("Jessica", new ArrayList<>(economyFlight.getPassengersSet()).get(0).getName()),
-                        () -> assertEquals(true, economyFlight.removePassenger(jessica)),
-                        () -> assertEquals(0, economyFlight.getPassengersSet().size())
-                );
-            }
-
+                @Test
+                @DisplayName("Luegos puedes agregarlo y eliminarlo de un vuelo economico")
+                public void testEconomyFlightRegularPassenger() {
+                    assertAll("Verifica todas las condiciones para un pasajero regular y un vuelo economico",
+                            () -> assertEquals("1", economyFlight.getId()),
+                            () -> assertEquals(true, economyFlight.addPassenger(jessica)),
+                            () -> assertEquals(1, economyFlight.getPassengersSet().size()),
+                            () -> assertEquals("Jessica", new ArrayList<>(economyFlight.getPassengersSet()).get(0).getName()),
+                            () -> assertEquals(true, economyFlight.removePassenger(jessica)),
+                            () -> assertEquals(0, economyFlight.getPassengersSet().size())
+                    );
+                }
             @DisplayName("Entonces no puedes agregarlo a un vuelo economico mas de una vez")
             @RepeatedTest(5)
-            public void testEconomyFlightRegularPassengerAddedOnlyOnce(RepetitionInfo repetitionInfo) {
-                // Completar el código. Pregunta 8
+            public void testEconomyFlightRegularPassengerAddedOnlyOnce(RepetitionInfo repetitionInfo) {}
+            @Nested
+            @DisplayName("Cuando tenemos un pasajero VIP")
+            class VipPassenger {
 
-                @Nested
-                @DisplayName("Cuando tenemos un pasajero VIP")
-                class VipPassenger {
-                    @Test
-                    @DisplayName("Luego puedes agregarlo pero no puedes eliminarlo de un vuelo economico")
-                    public void testEconomyFlightVipPassenger() {
-                        assertAll("Verifica todas las condiciones para un pasajero VIP y un vuelo economico",
-                                () -> assertEquals("1", economyFlight.getId()),
-                                () -> assertEquals(true, economyFlight.addPassenger(cesar)),
-                                () -> assertEquals(1, economyFlight.getPassengersSet().size()),
-                                () -> assertEquals("Cesar", new ArrayList<>(economyFlight.getPassengersSet()).get(0).getName()),
-                                () -> assertEquals(false, economyFlight.removePassenger(cesar)),
-                                () -> assertEquals(1, economyFlight.getPassengersSet().size())
-                        );
-                    }
+                @Test
+                @DisplayName("Luego puedes agregarlo pero no puedes eliminarlo de un vuelo economico")
+                public void testEconomyFlightVipPassenger() {
+                    assertAll("Verifica todas las condiciones para un pasajero VIP y un vuelo economico",
+                            () -> assertEquals("1", economyFlight.getId()),
+                            () -> assertEquals(true, economyFlight.addPassenger(cesar)),
+                            () -> assertEquals(1, economyFlight.getPassengersSet().size()),
+                            () -> assertEquals("Cesar", new ArrayList<>(economyFlight.getPassengersSet()).get(0).getName()),
+                            () -> assertEquals(false, economyFlight.removePassenger(cesar)),
+                            () -> assertEquals(1, economyFlight.getPassengersSet().size())
+                    );
+                }
 
-                    @DisplayName("Entonces no puedes agregarlo a un vuelo economico mas de una vez")
-                    @RepeatedTest(5)
-                    public void testEconomyFlightVipPassengerAddedOnlyOnce(RepetitionInfo repetitionInfo) {
-                        for (int i = 0; i < repetitionInfo.getCurrentRepetition(); i++) {
-                            economyFlight.addPassenger(cesar);
-                        }
-                        assertAll("Verifica que un pasajero VIP se pueda agregar a un vuelo económico solo una vez",
-                                () -> assertEquals(1, economyFlight.getPassengersSet().size()),
-                                () -> assertTrue(economyFlight.getPassengersSet().contains(cesar)),
-                                () -> assertTrue(new ArrayList<>(economyFlight.getPassengersSet()).get(0).getName().equals("Cesar"))
-                        );
+                @DisplayName("Entonces no puedes agregarlo a un vuelo economico mas de una vez")
+                @RepeatedTest(5)
+                public void testEconomyFlightVipPassengerAddedOnlyOnce(RepetitionInfo repetitionInfo) {
+                    for (int i = 0; i < repetitionInfo.getCurrentRepetition(); i++) {
+                        economyFlight.addPassenger(cesar);
                     }
+                    assertAll("Verifica que un pasajero VIP se pueda agregar a un vuelo económico solo una vez",
+                            () -> assertEquals(1, economyFlight.getPassengersSet().size()),
+                            () -> assertTrue(economyFlight.getPassengersSet().contains(cesar)),
+                            () -> assertTrue(new ArrayList<>(economyFlight.getPassengersSet()).get(0).getName().equals("Cesar"))
+                    );
                 }
             }
+
 
             @DisplayName("Dado que hay un vuelo de negocios")
             @Nested
