@@ -10,15 +10,15 @@ public class AirportTest {
 
     @DisplayName("Dado que hay un vuelo economico")
     @Nested
-    class EconomyFlightTest {
+    class PremiumFlightTest {
 
-        private Flight economyFlight;
+        private Flight premiumFlight;
         private Passenger jessica;
         private Passenger cesar;
 
         @BeforeEach
         void setUp() {
-            economyFlight = new EconomyFlight("1");
+            premiumFlight = new PremiumFlight("1");
             jessica = new Passenger("Jessica", false);
             cesar = new Passenger("Cesar", true);
         }
@@ -28,15 +28,15 @@ public class AirportTest {
         class RegularPassenger {
 
             @Test
-            @DisplayName("Luego puede agregarlo y eliminarlo de un vuelo economico")
+            @DisplayName("Luego puede agregarlo y eliminarlo de un vuelo premium")
             public void testEconomyFlightRegularPassenger() {
-                assertAll("Verifica todas las condiciones para un pasajero regular y un vuelo economico",
-                        () -> assertEquals("1", economyFlight.getId()),
-                        () -> assertEquals(true, economyFlight.addPassenger(jessica)),
-                        () -> assertEquals(1, economyFlight.getPassengersList().size()),
-                        () -> assertEquals("Jessica", economyFlight.getPassengersList().get(0).getName()),
-                        () -> assertEquals(true, economyFlight.removePassenger(jessica)),
-                        () -> assertEquals(0, economyFlight.getPassengersList().size())
+                assertAll("Verifica todas las condiciones para un pasajero regular y un vuelo premium",
+                        () -> assertEquals("1", premiumFlight.getId()),
+                        () -> assertEquals(true, premiumFlight.addPassenger(jessica)),
+                        () -> assertEquals(1, premiumFlight.getPassengersList().size()),
+                        () -> assertEquals("Jessica", premiumFlight.getPassengersList().get(0).getName()),
+                        () -> assertEquals(true, premiumFlight.removePassenger(jessica)),
+                        () -> assertEquals(0, premiumFlight.getPassengersList().size())
                 );
             }
         }
@@ -48,7 +48,7 @@ public class AirportTest {
             @DisplayName("Luego puedes agregarlo pero no puede eliminarlo de un vuelo economico")
             public void testEconomyFlightVipPassenger() {
                 assertAll("Verifica todas las condiciones para un pasajero VIP y un vuelo economico",
-                        () -> assertEquals("1", economyFlight.getId()),
+                        () -> assertEquals("1", premiumFlight.getId()),
                         () -> assertEquals(true, economyFlight.addPassenger(cesar)),
                         () -> assertEquals(1, economyFlight.getPassengersList().size()),
                         () -> assertEquals("Cesar", economyFlight.getPassengersList().get(0).getName()),

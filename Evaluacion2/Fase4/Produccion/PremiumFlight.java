@@ -1,7 +1,5 @@
 public class PremiumFlight extends Flight {
 
-    // Diseño inicial de la clase  PremiumFlight. Pregunta 5
-
     public PremiumFlight(String id) {
         super(id);
     }
