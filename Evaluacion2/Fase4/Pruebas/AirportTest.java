@@ -49,11 +49,11 @@ public class AirportTest {
             public void testEconomyFlightVipPassenger() {
                 assertAll("Verifica todas las condiciones para un pasajero VIP y un vuelo economico",
                         () -> assertEquals("1", premiumFlight.getId()),
-                        () -> assertEquals(true, economyFlight.addPassenger(cesar)),
-                        () -> assertEquals(1, economyFlight.getPassengersList().size()),
-                        () -> assertEquals("Cesar", economyFlight.getPassengersList().get(0).getName()),
-                        () -> assertEquals(false, economyFlight.removePassenger(cesar)),
-                        () -> assertEquals(1, economyFlight.getPassengersList().size())
+                        () -> assertEquals(true, premiumFlight.addPassenger(cesar)),
+                        () -> assertEquals(1, premiumFlight.getPassengersList().size()),
+                        () -> assertEquals("Cesar", premiumFlight.getPassengersList().get(0).getName()),
+                        () -> assertEquals(false, premiumFlight.removePassenger(cesar)),
+                        () -> assertEquals(1, premiumFlight.getPassengersList().size())
                 );
 
             }
