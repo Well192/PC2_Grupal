@@ -156,7 +156,6 @@ public class AirportTest {
                 @Nested
                 @DisplayName("Cuando tenemos un pasajero VIP")
                 class VipPassenger {
-
                     @Test
                     @DisplayName("Luego puedes agregarlo pero no puedes eliminarlo de un vuelo premium")
                     public void testBusinessFlightVipPassenger() {
